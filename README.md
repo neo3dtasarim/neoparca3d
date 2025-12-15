@@ -1,1 +1,375 @@
-# neoparca3d
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neo Parça & Tasarım | 3D Baskı ve Modelleme</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- GENEL AYARLAR --- */
+        :root {
+            --primary-color: #0f172a; /* Koyu Lacivert (Sanayi/Güven) */
+            --accent-color: #f97316;  /* Turuncu (Enerji/Yaratıcılık) */
+            --text-color: #333333;
+            --light-bg: #f8fafc;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* --- HEADER & NAVİGASYON --- */
+        header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* --- HERO SECTION (GİRİŞ) --- */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), url('https://images.unsplash.com/photo-1631541909061-71e349d1f203?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80'); /* Temsili 3D yazıcı görseli */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #cbd5e1;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--accent-color);
+            color: var(--white);
+            border-radius: 5px;
+            font-weight: 600;
+            border: 2px solid var(--accent-color);
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--accent-color);
+        }
+
+        /* --- HİZMETLERİMİZ --- */
+        .section {
+            padding: 5rem 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-color);
+            margin: 10px auto 0;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--light-bg);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: 0.3s;
+            border: 1px solid #e2e8f0;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border-color: var(--accent-color);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        /* --- HAKKIMIZDA --- */
+        .about {
+            background-color: var(--light-bg);
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            height: 300px;
+            background-color: #ddd; /* Temsili görsel alanı */
+            border-radius: 10px;
+            background-image: url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* --- SÜREÇ ADIMLARI --- */
+        .process-steps {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .step {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* --- İLETİŞİM & FOOTER --- */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 3rem 5%;
+            text-align: center;
+        }
+
+        .contact-btn-large {
+            font-size: 1.2rem;
+            margin-top: 1rem;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2rem; }
+            
+            .mobile-menu-btn { display: block; }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary-color);
+                padding: 1rem;
+                text-align: center;
+            }
+
+            nav ul.active { display: flex; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">NEO PARÇA <span>& TASARIM</span></div>
+        <div class="mobile-menu-btn" onclick="toggleMenu()">☰</div>
+        <nav>
+            <ul id="nav-list">
+                <li><a href="#home">Ana Sayfa</a></li>
+                <li><a href="#services">Hizmetler</a></li>
+                <li><a href="#about">Hakkımızda</a></li>
+                <li><a href="#process">Nasıl Çalışır?</a></li>
+                <li><a href="#contact" style="color:var(--accent-color); font-weight:bold;">İletişim</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Kırılanı Dert Etme,<br>Biz Tasarlar Basarız</h1>
+            <p>Bulamadığınız yedek parçaların üretimi ve size özel 3D tasarım çözümleri.</p>
+            <a href="#contact" class="btn">Parça Sorgula / Teklif Al</a>
+        </div>
+    </section>
+
+    <section id="services" class="section">
+        <h2 class="section-title">Neler Yapıyoruz?</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">⚙️</div>
+                <h3>Yedek Parça Üretimi</h3>
+                <p>Kırılan beyaz eşya, otomotiv veya hobi parçalarınızı numunesine göre sıfırdan üretiyoruz.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🖥️</div>
+                <h3>3D Modelleme & Tasarım</h3>
+                <p>Aklınızdaki fikri veya ihtiyacınız olan ürünü dijital ortamda profesyonelce modelliyoruz.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🏗️</div>
+                <h3>Prototip Üretimi</h3>
+                <p>Seri üretim öncesi projelerinizin ilk örneğini görüp test etmenizi sağlıyoruz.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🎁</div>
+                <h3>Kişiye Özel Aksesuar</h3>
+                <p>Standartların dışında, tamamen size özel hediyelik ve aksesuarlar tasarlıyoruz.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section about">
+        <div class="about-image"></div>
+        <div class="about-text">
+            <h2 class="section-title" style="text-align: left; margin-bottom: 1rem;">Biz Kimiz?</h2>
+            <p><strong>Neo Parça & Tasarım</strong> olarak, standart üretimin yetersiz kaldığı noktalarda devreye giriyoruz. Sadece "dosya basan" bir işletme değil, mühendislik ve tasarım yeteneklerimizle sorun çözen bir atölyeyiz.</p>
+            <br>
+            <p>Eski bir cihazın bulunmayan dişlisinden, hayalinizdeki özel bir figüre kadar; çizimden üretime tüm süreçte yanınızdayız.</p>
+        </div>
+    </section>
+
+    <section id="process" class="section" style="background-color: #f1f5f9;">
+        <h2 class="section-title">Nasıl Çalışır?</h2>
+        <div class="process-steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>İletişime Geç</h3>
+                <p>Kırık parçanın fotoğrafını veya projenizi bize gönderin.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Tasarım & Modelleme</h3>
+                <p>Parçayı dijital ortamda ölçülendirip çiziyoruz.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>3D Üretim</h3>
+                <p>Yüksek kaliteli malzemelerle baskıyı gerçekleştiriyoruz.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <h3>Teslimat</h3>
+                <p>Ürününüzü kargoluyor veya elden teslim ediyoruz.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <h2>Eksik Parçanız Kalmasın!</h2>
+        <p style="margin-top: 10px; color: #cbd5e1;">Bizimle iletişime geçin, sorunu çözelim.</p>
+        
+        <div style="margin-top: 2rem;">
+            <p>📍 Atölye: İstanbul / Türkiye (Örnek Adres)</p>
+            <p>📞 Telefon: +90 555 000 00 00</p>
+            <p>✉️ Email: info@neoparca.com</p>
+        </div>
+
+        <a href="mailto:info@neoparca.com" class="btn contact-btn-large" style="margin-top: 20px; background-color: white; color: var(--primary-color);">Bize Ulaşın</a>
+        
+        <p style="margin-top: 3rem; font-size: 0.8rem; opacity: 0.6;">© 2024 Neo Parça & Tasarım. Tüm hakları saklıdır.</p>
+    </footer>
+
+    <script>
+        // Mobil Menü Aç/Kapa Fonksiyonu
+        function toggleMenu() {
+            const navList = document.getElementById('nav-list');
+            navList.classList.toggle('active');
+        }
+
+        // Menü linklerine tıklandığında menüyü kapat (Mobil için)
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('nav-list').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
