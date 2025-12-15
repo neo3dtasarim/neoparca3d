@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neo Parça & Tasarım - Endüstriyel Parça ve Tasarım Çözümleri</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0056b3;
+      --primary-hover: #003d80;
+      --text: #333;
+      --text-light: #666;
+      --bg: #f8f9fa;
+      --card-bg: #ffffff;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    header {
+      background: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+    nav {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    .logo img {
+      height: 50px;
+      margin-right: 10px;
+    }
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover {
+      color: var(--primary);
+    }
+    .hero {
+      height: 80vh;
+      min-height: 600px;
+      background: linear-gradient(rgba(0,86,179,0.8), rgba(0,86,179,0.6)), url('https://media.istockphoto.com/id/2143490032/photo/modern-manufacturing-plant-with-advanced-robotic-arms-operating-on-an-assembly-line-with.jpg?s=612x612&w=0&k=20&c=pYSDAKAyTzuURDptDyXRQsOBlcQLwU_PueNsD5LISv8=') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+    }
+    .hero-content h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+    }
+    .hero-content p {
+      font-size: 1.4rem;
+      max-width: 800px;
+      margin: 0 auto 2rem;
+    }
+    .btn-primary {
+      background: white;
+      color: var(--primary);
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 6px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .btn-primary:hover {
+      background: #f0f0f0;
+      transform: scale(1.05);
+    }
+    .container {
+      max-width: 1400px;
+      margin: 4rem auto;
+      padding: 0 2rem;
+    }
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      color: var(--primary);
+    }
+    .controls {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+    }
+    .search-box input {
+      flex: 1;
+      min-width: 300px;
+      padding: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 1.1rem;
+    }
+    select {
+      padding: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 1.1rem;
+    }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 2rem;
+    }
+    .product-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+      transition: all 0.4s;
+    }
+    .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    }
+    .product-image {
+      height: 280px;
+      overflow: hidden;
+    }
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+    .product-card:hover img {
+      transform: scale(1.1);
+    }
+    .product-info {
+      padding: 1.5rem;
+    }
+    .product-info h3 {
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
+    .product-code {
+      color: var(--primary);
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+    .product-desc {
+      color: var(--text-light);
+      margin-bottom: 1.5rem;
+    }
+    .btn {
+      background: var(--primary);
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      width: 100%;
+    }
+    .btn:hover {
+      background: var(--primary-hover);
+    }
+    footer {
+      background: #003d80;
+      color: white;
+      text-align: center;
+      padding: 3rem;
+      margin-top: 5rem;
+    }
+    @media (max-width: 768px) {
+      nav { flex-direction: column; gap: 1rem; }
+      .hero-content h1 { font-size: 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <div class="logo">
+        <img src="https://thumbs.dreamstime.com/b/bahan-update-396589958.jpg" alt="Neo Parça Logo">
+        Neo Parça & Tasarım
+      </div>
+      <ul>
+        <li><a href="#">Anasayfa</a></li>
+        <li><a href="#">Ürünler</a></li>
+        <li><a href="#">Hakkımızda</a></li>
+        <li><a href="#">İletişim</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Neo Parça & Tasarım</h1>
+      <p>Yüksek kaliteli endüstriyel parça üretimi ve özel tasarım çözümleriyle yanınızdayız.</p>
+      <button class="btn-primary">Teklif Alın</button>
+    </div>
+  </section>
+
+  <div class="container">
+    <h2 class="section-title">Ürün Kataloğu</h2>
+    <div class="controls">
+      <div class="search-box">
+        <input type="text" id="search" placeholder="Ürün ara...">
+      </div>
+      <select id="category">
+        <option value="all">Tüm Kategoriler</option>
+        <option value="mekanik">Mekanik Parçalar</option>
+        <option value="hidrolik">Hidrolik & Pnömatik</option>
+        <option value="tasarim">Özel Tasarımlar</option>
+        <option value="oto">Otomotiv Parçaları</option>
+      </select>
+    </div>
+
+    <div class="products" id="productGrid"></div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Neo Parça & Tasarım. Tüm hakları saklıdır.</p>
+  </footer>
+
+  <script>
+    const products = [
+      { name: "CNC İşlenmiş Flanş", code: "NP-001", category: "mekanik", desc: "Paslanmaz çelik, Ø200mm, yüksek hassasiyetli CNC işleme.", img: "https://ptsmake.com/wp-content/uploads/2025/02/ptsmake2025.02.28-1532Precision-CNC-Machined-Flange.webp" },
+      { name: "CNC İşlenmiş Flanş (Çoklu)", code: "NP-001B", category: "mekanik", desc: "Paslanmaz çelik flanş serisi.", img: "https://ptsmake.com/wp-content/uploads/2025/02/ptsmake2025.02.28-1621-Precision-Machined-Metal-Flanges.webp" },
+      { name: "Hidrolik Silindir Pistonu", code: "NP-002", category: "hidrolik", desc: "Krom kaplama, 100 ton basınca dayanıklı.", img: "https://cdn2.hubspot.net/hubfs/4204170/Screen%20Shot%202019-04-11%20at%2010.59.24.jpg" },
+      { name: "Özel Dişli Seti", code: "NP-003", category: "tasarim", desc: "Modül 3, ısıl işlem uygulanmış çelik.", img: "https://sdp-si.com/Custom-Gear-Manufacturing/images/custom-gears-5-rec.png" },
+      { name: "Otomotiv Şaft Mili", code: "NP-004", category: "oto", desc: "Temperlenmiş çelik, dinamik balanslı.", img: "https://m.media-amazon.com/images/I/51UR0EI5CpL._AC_UF894,1000_QL80_.jpg" },
+      { name: "Pompa Gövdesi", code: "NP-005", category: "mekanik", desc: "Döküm alüminyum, anodize kaplama.", img: "https://image.made-in-china.com/202f0j00ELoYZbwKHUqT/Aluminum-ADC12-Die-Casting-Pump-Housing-Pump-Cover-Pump-Shell.webp" },
+      { name: "Pnömatik Bağlantı Elemanı", code: "NP-006", category: "hidrolik", desc: "Hızlı bağlantı tipi, pirinç malzeme.", img: "https://m.media-amazon.com/images/I/611gmdfTPPL._AC_UF894,1000_QL80_.jpg" },
+      { name: "Robot Kol Parçası", code: "NP-007", category: "tasarim", desc: "3D baskı + CNC son işlem, karbon fiber takviyeli.", img: "https://image.made-in-china.com/2f0j00zGNUyVisLqcF/Carbon-Fiber-Collaborative-Robot-Arm-Tubes-Cfrp-Robot-Arm-Body-Robotic-Arm.webp" },
+      { name: "Egzoz Manifoldu", code: "NP-008", category: "oto", desc: "Paslanmaz çelik, performans odaklı tasarım.", img: "http://www.bmptuning.com/cdn/shop/products/F45304__69017.jpg?v=1762269393" }
+    ];
+
+    function renderProducts(filtered) {
+      const grid = document.getElementById('productGrid');
+      grid.innerHTML = '';
+      filtered.forEach(p => {
+        const card = document.createElement('div');
+        card.className = 'product-card';
+        card.innerHTML = `
+          <div class="product-image">
+            <img src="${p.img}" alt="${p.name}">
+          </div>
+          <div class="product-info">
+            <h3>${p.name}</h3>
+            <div class="product-code">Kod: ${p.code}</div>
+            <p class="product-desc">${p.desc}</p>
+            <button class="btn">Detay & Teklif Al</button>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function filterProducts() {
+      const search = document.getElementById('search').value.toLowerCase();
+      const cat = document.getElementById('category').value;
+      const filtered = products.filter(p => 
+        (p.name.toLowerCase().includes(search) || p.desc.toLowerCase().includes(search) || p.code.toLowerCase().includes(search)) &&
+        (cat === 'all' || p.category === cat)
+      );
+      renderProducts(filtered || products);
+    }
+
+    renderProducts(products);
+    document.getElementById('search').addEventListener('input', filterProducts);
+    document.getElementById('category').addEventListener('change', filterProducts);
+  </script>
+</body>
+</html>
