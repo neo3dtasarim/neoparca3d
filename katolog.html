@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3D Modern Katalog | Neo Tasarım</title>
+    <title>3D  Katalog | Neo studio</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.3.0/model-viewer.min.js"></script>
@@ -18,8 +18,9 @@
             --bg-color: #FAFAFA;
         }
 
-        /* SEÇİM VE SAĞ TIK ENGELLEME İÇİN CSS DESTEĞİ */
+        /* TEMEL AYARLAR */
         * { box-sizing: border-box; margin: 0; padding: 0; }
+        
         body { 
             font-family: 'Poppins', sans-serif; 
             background-color: var(--bg-color); 
@@ -29,7 +30,7 @@
             -webkit-user-select: none;
         }
 
-        /* Navigasyon */
+        /* NAVIGASYON */
         nav {
             display: flex; justify-content: space-between; align-items: center;
             padding: 20px 5%; background: var(--white);
@@ -58,24 +59,24 @@
         .redirect-text h2 { font-size: 1.5rem; color: var(--dark-text); margin-bottom: 10px; }
         .redirect-text p { color: var(--light-text); font-size: 1rem; }
         
-        /* Header */
+        /* HEADER */
         header { text-align: center; padding: 60px 20px; background: linear-gradient(135deg, var(--white) 0%, var(--light-orange) 100%); }
         header h1 { font-size: 2.5rem; margin-bottom: 10px; }
         header p { color: var(--light-text); max-width: 600px; margin: 0 auto 30px; }
 
-        /* Filtreler */
+        /* FILTRELER */
         .filters { display: flex; justify-content: center; gap: 15px; margin-bottom: 40px; flex-wrap: wrap; }
         .filter-btn { padding: 10px 25px; border: 2px solid transparent; border-radius: 30px; background: var(--white); color: var(--dark-text); cursor: pointer; font-weight: 500; transition: all 0.3s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
         .filter-btn:hover, .filter-btn.active { background: var(--primary-orange); color: var(--white); transform: translateY(-2px); box-shadow: 0 6px 12px rgba(255, 107, 0, 0.3); }
 
-        /* Grid */
+        /* GRID YAPISI */
         .catalog-container { max-width: 1200px; margin: 0 auto; padding: 0 20px 60px; display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; }
 
-        /* Kart */
+        /* KART TASARIMI */
         .card { background: var(--white); border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.03); transition: transform 0.3s ease; display: flex; flex-direction: column; border: 1px solid #f0f0f0; }
         .card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); border-color: var(--light-orange); }
         
-        /* Model Viewer Ayarları */
+        /* MODEL VIEWER */
         model-viewer { width: 100%; height: 300px; background-color: #f7f7f7; --poster-color: #f7f7f7; }
         
         .card-content { padding: 25px; }
@@ -86,14 +87,17 @@
         .card-footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #eee; padding-top: 15px; }
         .price { font-size: 1.1rem; font-weight: 600; color: var(--dark-text); }
         
-        /* Satın Al Butonu */
+        /* BUTON */
         .btn-action { background-color: var(--primary-orange); color: var(--white); padding: 8px 20px; border-radius: 8px; text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: background 0.3s; cursor: pointer; border: none; }
         .btn-action:hover { background-color: #e65e00; }
         
         footer { background: var(--dark-text); color: var(--white); text-align: center; padding: 40px 20px; margin-top: auto; }
+        footer p { margin-bottom: 10px; font-size: 0.9rem; }
     </style>
 </head>
-<body oncontextmenu="return false;"> <div id="redirect-overlay">
+<body oncontextmenu="return false;"> 
+
+    <div id="redirect-overlay">
         <div class="loader"></div>
         <div class="redirect-text">
             <h2>Asistan Yönlendiriyor</h2>
@@ -115,13 +119,140 @@
         
         <div class="filters">
             <button class="filter-btn active" onclick="filterModels('all')">Tümü</button>
-            <button class="filter-btn" onclick="filterModels('character')">Karakterler</button>
-            <button class="filter-btn" onclick="filterModels('vehicle')">Araçlar</button>
+            <button class="filter-btn" onclick="filterModels('vehicle')">Oto Yedek Parça</button>
+            <button class="filter-btn" onclick="filterModels('accessory')">Aksesuarlar</button>
             <button class="filter-btn" onclick="filterModels('furniture')">Mobilya</button>
+            <button class="filter-btn" onclick="filterModels('character')">Karakterler</button>
         </div>
     </header>
 
     <div class="catalog-container">
+
+        <div class="card" data-category="vehicle">
+            <model-viewer 
+                src="" 
+                data-src="https://neo3dtasarim.github.io/neoparca3d/np6,5.glb" 
+                alt="Dişi Menteşe" 
+                auto-rotate camera-controls ar shadow-intensity="1">
+            </model-viewer>
+            <div class="card-content">
+                <div class="card-category">Yedek Parça / Menteşe</div>
+                <div class="card-title">
+                    Dişi Menteşe
+                    <span class="product-code">Kod: NP-6.5</span>
+                </div>
+                <p class="card-desc">Dayanıklı endüstriyel tasarım, yüksek mukavemetli dişi menteşe parçası.</p>
+                <div class="card-footer">
+                    <span class="price">Teklif Al</span>
+                    <button class="btn-action" onclick="startWhatsAppProcess('NP-6.5', 'Dişi Menteşe')">Sipariş Ver</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" data-category="vehicle">
+            <model-viewer 
+                src="" 
+                data-src="https://neo3dtasarim.github.io/neoparca3d/np6.glb" 
+                alt="Erkek Menteşe" 
+                auto-rotate camera-controls ar shadow-intensity="1">
+            </model-viewer>
+            <div class="card-content">
+                <div class="card-category">Yedek Parça / Menteşe</div>
+                <div class="card-title">
+                    Erkek Menteşe
+                    <span class="product-code">Kod: NP-06</span>
+                </div>
+                <p class="card-desc">Tam uyumlu, montaja hazır erkek menteşe parçası.</p>
+                <div class="card-footer">
+                    <span class="price">Teklif Al</span>
+                    <button class="btn-action" onclick="startWhatsAppProcess('NP-06', 'Erkek Menteşe')">Sipariş Ver</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" data-category="accessory">
+            <model-viewer 
+                src="" 
+                data-src="https://neo3dtasarim.github.io/neoparca3d/np2.glb" 
+                alt="Kuru Kafa Anahtarlık" 
+                auto-rotate camera-controls ar shadow-intensity="1">
+            </model-viewer>
+            <div class="card-content">
+                <div class="card-category">Aksesuar / Anahtarlık</div>
+                <div class="card-title">
+                    Kuru Kafa Anahtarlık
+                    <span class="product-code">Kod: NP-02</span>
+                </div>
+                <p class="card-desc">Özel tasarım, 3D baskı ve üretim için uygun detaylı model.</p>
+                <div class="card-footer">
+                    <span class="price">Teklif Al</span>
+                    <button class="btn-action" onclick="startWhatsAppProcess('NP-02', 'Kuru Kafa Anahtarlık')">Sipariş Ver</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" data-category="vehicle">
+            <model-viewer 
+                src="" 
+                data-src="https://neo3dtasarim.github.io/neoparca3d/np3.glb" 
+                alt="Özel Tasarım Sibop Kapağı" 
+                auto-rotate camera-controls ar shadow-intensity="1">
+            </model-viewer>
+            <div class="card-content">
+                <div class="card-category">Oto Aksesuar</div>
+                <div class="card-title">
+                    Özel Sibop Kapağı
+                    <span class="product-code">Kod: NP-03</span>
+                </div>
+                <p class="card-desc">Aracınız için şık, sağlam ve kişiselleştirilmiş sibop kapağı tasarımı.</p>
+                <div class="card-footer">
+                    <span class="price">Teklif Al</span>
+                    <button class="btn-action" onclick="startWhatsAppProcess('NP-03', 'Sibop Kapağı')">Sipariş Ver</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" data-category="vehicle">
+            <model-viewer 
+                src="" 
+                data-src="https://neo3dtasarim.github.io/neoparca3d/np4.glb" 
+                alt="Özel Araç Tıpası" 
+                auto-rotate camera-controls ar shadow-intensity="1">
+            </model-viewer>
+            <div class="card-content">
+                <div class="card-category">Oto Yedek Parça</div>
+                <div class="card-title">
+                    Özel Araç Tıpası
+                    <span class="product-code">Kod: NP-04</span>
+                </div>
+                <p class="card-desc">Özel ölçülerde üretilmiş, sızdırmaz ve dayanıklı araç gövde tıpası.</p>
+                <div class="card-footer">
+                    <span class="price">Teklif Al</span>
+                    <button class="btn-action" onclick="startWhatsAppProcess('NP-04', 'Özel Araç Tıpası')">Sipariş Ver</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" data-category="vehicle">
+            <model-viewer 
+                src=""
+                data-src="https://neo3dtasarim.github.io/neoparca3d/town%20to%20(1).glb" 
+                alt="Neo Şehir Tasarımı" 
+                auto-rotate camera-controls ar shadow-intensity="1">
+            </model-viewer>
+            <div class="card-content">
+                <div class="card-category">Mimari / Şehir</div>
+                <div class="card-title">
+                    Neo Şehir Projesi
+                    <span class="product-code">Kod: NEO-01</span>
+                </div>
+                <p class="card-desc">Özel tasarım şehir modellemesi. Detaylı yapılar ve çevre düzeni.</p>
+                <div class="card-footer">
+                    <span class="price">Teklif Al</span>
+                    <button class="btn-action" onclick="startWhatsAppProcess('NEO-01', 'Neo Şehir Projesi')">Sipariş Ver</button>
+                </div>
+            </div>
+        </div>
 
         <div class="card" data-category="character">
             <model-viewer 
@@ -165,96 +296,43 @@
             </div>
         </div>
 
-        <div class="card" data-category="furniture">
-            <model-viewer 
-                src="" 
-                data-src="https://modelviewer.dev/shared-assets/models/Chair.glb" 
-                alt="Sandalye Modeli" 
-                auto-rotate camera-controls ar shadow-intensity="1">
-            </model-viewer>
-            <div class="card-content">
-                <div class="card-category">Mobilya</div>
-                <div class="card-title">
-                    Modern Sandalye
-                    <span class="product-code">Kod: FRN-24</span>
-                </div>
-                <p class="card-desc">İç mimari için kadife sandalye.</p>
-                <div class="card-footer">
-                    <span class="price">Teklif Al</span>
-                    <button class="btn-action" onclick="startWhatsAppProcess('FRN-24', 'Modern Sandalye')">Teklif İste</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="card" data-category="vehicle">
-            <model-viewer 
-                src=""
-                data-src="https://neo3dtasarim.github.io/neoparca3d/town%20to%20(1).glb" 
-                alt="Neo Şehir Tasarımı" 
-                auto-rotate 
-                camera-controls 
-                ar 
-                shadow-intensity="1">
-            </model-viewer>
-            
-            <div class="card-content">
-                <div class="card-category">Mimari / Şehir</div>
-                <div class="card-title">
-                    Neo Şehir Projesi
-                    <span class="product-code">Kod: NEO-01</span>
-                </div>
-                <p class="card-desc">Özel tasarım şehir modellemesi. Detaylı yapılar ve çevre düzeni.</p>
-                
-                <div class="card-footer">
-                    <span class="price">Teklif Al</span>
-                    <button class="btn-action" onclick="startWhatsAppProcess('NEO-01', 'Neo Şehir Projesi')">Sipariş Ver</button>
-                </div>
-            </div>
-        </div>
-
     </div>
 
     <footer>
         <p>&copy; 2024 neoStore - Tüm Hakları Saklıdır.</p>
-   <p>🔒 Bu sitedeki modeller Neo 3D Tasarım'a aittir. İzinsiz kopyalanması yasaktır.   <p>
+        <p>🔒 Bu sitedeki modeller Neo 3D Tasarım'a aittir. İzinsiz kopyalanması yasaktır.</p>
     </footer>
 
     <script>
-        // 1. GÜVENLİK SİSTEMİ: Linkleri Gizleme (Blob URL)
-        // Sayfa açılınca tüm 'data-src' olanları bulup güvenli linke çevirir.
+        // 1. GÜVENLİK SİSTEMİ (Link Gizleme)
         document.addEventListener("DOMContentLoaded", async function() {
             const models = document.querySelectorAll("model-viewer");
 
             models.forEach(async (model) => {
                 const realLink = model.getAttribute("data-src");
-                
                 if(realLink) {
                     try {
-                        // Dosyayı arkadan çek
                         const response = await fetch(realLink);
                         const blob = await response.blob();
-                        // Geçici şifreli link oluştur
                         const secureUrl = URL.createObjectURL(blob);
-                        // Modele ver
                         model.src = secureUrl;
                     } catch (error) {
                         console.error("Model yüklenirken hata oldu:", error);
-                        // Hata olursa yine de açmayı dene
                         model.src = realLink;
                     }
                 }
             });
         });
 
-        // 2. GÜVENLİK: Klavye Kısayollarını Engelleme (F12 vb.)
+        // 2. GÜVENLİK (Kısayol Engelleme)
         document.onkeydown = function(e) {
-            if(event.keyCode == 123) return false; // F12
+            if(event.keyCode == 123) return false;
             if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) return false;
             if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) return false;
-            if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) return false; // Kaynak Kod
+            if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) return false;
         }
 
-        // 3. WhatsApp Yönlendirme ve Bot Efekti
+        // 3. WHATSAPP BOTU
         function startWhatsAppProcess(productCode, productName) {
             const phoneNumber = "905411056355";
             const message = `Merhaba, web sitenizdeki *${productCode}* kodlu *${productName}* ürününü almak/incelemek istiyorum. Bilgi verir misiniz?`;
@@ -265,22 +343,18 @@
 
             setTimeout(() => {
                 window.location.href = whatsappUrl;
-                setTimeout(() => {
-                    overlay.style.display = 'none';
-                }, 1000);
+                setTimeout(() => { overlay.style.display = 'none'; }, 1000);
             }, 2500);
         }
 
-        // 4. Filtreleme Fonksiyonu
+        // 4. FİLTRELEME
         function filterModels(category) {
             const cards = document.querySelectorAll('.card');
             const buttons = document.querySelectorAll('.filter-btn');
             
             buttons.forEach(btn => {
                 btn.classList.remove('active');
-                if(event.target === btn) {
-                    btn.classList.add('active');
-                }
+                if(event.target === btn) { btn.classList.add('active'); }
             });
 
             cards.forEach(card => {
