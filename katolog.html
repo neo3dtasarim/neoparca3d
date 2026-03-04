@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3D  Katalog | Neo studio</title>
+    <title>3D Katalog | Neo studio</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.3.0/model-viewer.min.js"></script>
@@ -26,7 +26,7 @@
             background-color: var(--bg-color); 
             color: var(--dark-text); 
             line-height: 1.6;
-            user-select: none; /* Metin seçimini engeller */
+            user-select: none;
             -webkit-user-select: none;
         }
 
@@ -119,119 +119,118 @@
         <p>Projeleriniz için yüksek kaliteli 3D modeller.</p>
         
         <div class="filters">
-            <button class="filter-btn active" onclick="filterModels('all')">Tümü</button>
-            <button class="filter-btn" onclick="filterModels('vehicle')">Oto Yedek Parça</button>
-            <button class="filter-btn" onclick="filterModels('accessory')">Aksesuarlar</button>
-            <button class="filter-btn" onclick="filterModels('furniture')">Mobilya</button>
-            <button class="filter-btn" onclick="filterModels('character')">Karakterler</button>
+            <button class="filter-btn active" onclick="filterModels('all', this)">Tümü</button>
+            <button class="filter-btn" onclick="filterModels('vehicle', this)">Oto Yedek Parça</button>
+            <button class="filter-btn" onclick="filterModels('accessory', this)">Aksesuarlar</button>
+            <button class="filter-btn" onclick="filterModels('furniture', this)">Mobilya</button>
+            <button class="filter-btn" onclick="filterModels('character', this)">Karakterler</button>
         </div>
     </header>
  
     <div class="catalog-container">
-<div class="card" data-category="accessory">
-    <model-viewer 
-        src="" 
-        data-src="https://neo3dtasarim.github.io/neoparca3d/np9.glb" 
-        alt="Civciv Anahtarlık" 
-        exposure="0.3" 
-        shadow-intensity="2"
-        auto-rotate 
-        camera-controls 
-        ar>
-    </model-viewer>
+        
+        <div class="card" data-category="accessory">
+            <model-viewer 
+                src="" 
+                data-src="https://neo3dtasarim.github.io/neoparca3d/np9.glb" 
+                alt="Civciv Anahtarlık" 
+                exposure="0.3" 
+                shadow-intensity="2"
+                auto-rotate 
+                camera-controls 
+                ar>
+            </model-viewer>
 
-    <div class="card-content">
-        <div class="card-category">Aksesuar / Anahtarlık</div>
-        <div class="card-title">
-            Civciv Anahtarlık
-            <span class="product-code">Kod: NP-09</span>
+            <div class="card-content">
+                <div class="card-category">Aksesuar / Anahtarlık</div>
+                <div class="card-title">
+                    Civciv Anahtarlık
+                    <span class="product-code">Kod: NP-09</span>
+                </div>
+                <p class="card-desc">
+                    Şirin tasarımlı, çanta ve anahtarlarınız için özel üretim civciv figürü.
+                </p>
+                <div class="card-footer">
+                    <span class="price">Teklif Al</span>
+                    <button class="btn-action" onclick="startWhatsAppProcess('NP-09', 'Civciv Anahtarlık')">
+                        Sipariş Ver
+                    </button>
+                </div>
+            </div>
         </div>
-        <p class="card-desc">
-            Şirin tasarımlı, çanta ve anahtarlarınız için özel üretim civciv figürü.
-        </p>
-        <div class="card-footer">
-            <span class="price">Teklif Al</span>
-            <button class="btn-action" onclick="startWhatsAppProcess('NP-09', 'Civciv Anahtarlık')">
-                Sipariş Ver
-            </button>
+
+        <div class="card" data-category="accessory">
+            <model-viewer 
+                src="" 
+                data-src="https://neo3dtasarim.github.io/neoparca3d/np16.stl.stl" 
+                alt="cms40 jant  Anahtarlık" 
+                exposure="0.3" 
+                shadow-intensity="2"
+                auto-rotate 
+                camera-controls 
+                ar>
+            </model-viewer>
+
+            <div class="card-content">
+                <div class="card-category">Aksesuar / Anahtarlık</div>
+                <div class="card-title">
+                    cms40 Anahtarlık
+                    <span class="product-code">Kod: NP-16</span>
+                </div>
+                <p class="card-desc">
+                     kusursuz bir anahtarlık 
+                </p>
+                <div class="card-footer">
+                    <span class="price">Teklif Al</span>
+                    <button class="btn-action" onclick="startWhatsAppProcess('NP-16', 'cms40 Anahtarlık')">
+                        Sipariş Ver
+                    </button>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
 
+        <div class="card" data-category="accessory">
+            <model-viewer 
+                src="" 
+                data-src="https://neo3dtasarim.github.io/neoparca3d/np11.glb" 
+                alt="Üniversal Fırça Sapı" 
+                exposure="0.3" 
+                shadow-intensity="2" 
+                auto-rotate 
+                camera-controls 
+                ar>
+            </model-viewer>
 
-            <div class="catalog-container">
-<div class="card" data-category="accessory">
-    <model-viewer 
-        src="" 
-        data-src="https://neo3dtasarim.github.io/neoparca3d/np16.stl.stl" 
-        alt="cms40 jant  Anahtarlık" 
-        exposure="0.3" 
-        shadow-intensity="2"
-        auto-rotate 
-        camera-controls 
-        ar>
-    </model-viewer>
-
-    <div class="card-content">
-        <div class="card-category">Aksesuar / Anahtarlık</div>
-        <div class="card-title">
-            cms40 Anahtarlık
-            <span class="product-code">Kod: NP-16</span>
+            <div class="card-content">
+                <div class="card-category">Genel / Yedek Parça</div>
+                <div class="card-title">
+                    Üniversal Fırça Sapı
+                    <span class="product-code">Kod: NP-11</span>
+                </div>
+                <p class="card-desc">
+                    Her türlü fırça ucuna uyumlu, ergonomik ve dayanıklı yedek sap tasarımı.
+                </p>
+                <div class="card-footer">
+                    <span class="price">Teklif Al</span>
+                    <button class="btn-action" onclick="startWhatsAppProcess('NP-11', 'Üniversal Fırça Sapı')">
+                        Sipariş Ver
+                    </button>
+                </div>
+            </div>
         </div>
-        <p class="card-desc">
-             kusursuz bir anahtarlık 
-        </p>
-        <div class="card-footer">
-            <span class="price">Teklif Al</span>
-            <button class="btn-action" onclick="startWhatsAppProcess('NP-09', 'Civciv Anahtarlık')">
-                Sipariş Ver
-            </button>
-        </div>
-    </div>
-</div>
 
-
-<div class="card" data-category="accessory">
-    <model-viewer 
-        src="" 
-        data-src="https://neo3dtasarim.github.io/neoparca3d/np11.glb" 
-        alt="Üniversal Fırça Sapı" 
-        exposure="0.3" 
-        shadow-intensity="2" 
-        auto-rotate 
-        camera-controls 
-        ar>
-    </model-viewer>
-
-    <div class="card-content">
-        <div class="card-category">Genel / Yedek Parça</div>
-        <div class="card-title">
-            Üniversal Fırça Sapı
-            <span class="product-code">Kod: NP-11</span>
-        </div>
-        <p class="card-desc">
-            Her türlü fırça ucuna uyumlu, ergonomik ve dayanıklı yedek sap tasarımı.
-        </p>
-        <div class="card-footer">
-            <span class="price">Teklif Al</span>
-            <button class="btn-action" onclick="startWhatsAppProcess('NP-11', 'Üniversal Fırça Sapı')">
-                Sipariş Ver
-            </button>
-        </div>
-    </div>
-</div>
-
-
-<div class="card" data-category="accessory">
+        <div class="card" data-category="accessory">
             <model-viewer 
                 src="" 
                 data-src="https://neo3dtasarim.github.io/neoparca3d/np8.glb" 
                 alt="Hoşgeldiniz Tabelası" 
-                auto-rotate camera-controls ar shadow-intensity="1" exposure="0.3" 
-        shadow-intensity="2"
-        auto-rotate 
-        camera-controls>
+                exposure="0.3" 
+                shadow-intensity="2"
+                auto-rotate 
+                camera-controls 
+                ar>
             </model-viewer>
+            
             <div class="card-content">
                 <div class="card-category">Dekorasyon / Aksesuar</div>
                 <div class="card-title">
@@ -444,7 +443,7 @@
 
         // 2. GÜVENLİK (Kısayol Engelleme)
         document.onkeydown = function(e) {
-            if(event.keyCode == 123) return false;
+            if(e.keyCode == 123) return false;
             if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) return false;
             if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) return false;
             if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) return false;
@@ -466,15 +465,17 @@
         }
 
         // 4. FİLTRELEME
-        function filterModels(category) {
+        function filterModels(category, btnElement) {
             const cards = document.querySelectorAll('.card');
             const buttons = document.querySelectorAll('.filter-btn');
             
-            buttons.forEach(btn => {
-                btn.classList.remove('active');
-                if(event.target === btn) { btn.classList.add('active'); }
-            });
+            // Tüm butonlardan active sınıfını kaldır, sadece tıklanana ekle
+            buttons.forEach(btn => btn.classList.remove('active'));
+            if(btnElement) {
+                btnElement.classList.add('active');
+            }
 
+            // Kartları filtrele
             cards.forEach(card => {
                 if (category === 'all') {
                     card.style.display = 'flex';
